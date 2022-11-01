@@ -1,57 +1,227 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Calculator() {
-  return <div className="calculator">
-    <div className="c-wrapper">
+  const [prevAnswer, setPrevAnswer] = useState("");
+  const [answer, setAnswer] = useState("0");
+  const [operand, setOperand] = useState("");
+
+  const handleOperand = (e) => {
+    const value = e.target.value;
+
+    //set operand values
+    setOperand((op) => op + value);
+  };
+
+  const handleOperator = (e) => {
+    const value = e.target.value;
+
+    if (value == "=") {
+      if (operand == "") return;
+    }
+
+    // if no value in operand stop
+    if (value == "ac") {
+      setOperand("");
+      setAnswer(0);
+
+      // Check if we have a prev answer > 0
+      if (answer > 0) setPrevAnswer(answer);
+      return;
+    }
+
+    // handle plush and minus sign
+    if (value == "pm") {
+      if (operand == "") return;
+      //get the last char
+      let calculated;
+      if (Number(operand.slice(-1))) {
+        calculated = eval(operand);
+
+        if (Math.sign(calculated) < 0) {
+          calculated = Math.abs(calculated);
+          setOperand(calculated.toString());
+        } else {
+          setOperand(`-` + calculated.toString());
+        }
+      } else {
+        calculated = eval(operand.slice(0, -1));
+        if (Math.sign(calculated)) {
+          setOperand(`-` + calculated.toString());
+        } else {
+          setOperand(calculated.toString());
+        }
+      }
+      return;
+    }
+
+    let newOperand;
+    //To get the last operand value
+    if (operand.slice(-1) == value) {
+      return;
+    } else {
+      if (!Number(operand.slice(-1))) {
+        //To replace an operand within the calculation
+        newOperand = operand.slice(0, -1);
+
+        if (Number(operand.slice(-1) == 0)) {
+          setOperand(newOperand + `0` + value);
+          setAnswer(eval(operand));
+          setOperand("");cd 
+          return;
+        } else {
+          setOperand(newOperand + value);
+          return;
+        }
+      } else {
+        setOperand(operand + value);
+      }
+    }
+
+    switch (value) {
+      case "ac":
+        setOperand("");
+        break;
+      case "+":
+        setOperand(eval(operand) + value);
+        break;
+      case "-":
+        setOperand(`${eval(operand)}${value}`);
+        break;
+      case "*":
+        setOperand(`${eval(operand)}${value}`);
+        break;
+      case "/":
+        setOperand(`${eval(operand)}${value}`);
+        break;
+      case "=":
+        if (answer > -1) setPrevAnswer(answer);
+        setAnswer(eval(operand));
+        setOperand("");
+
+        break;
+      case "%":
+        console.log("percentage + Test for all viewers");
+        break;
+      default:
+        return;
+    }
+  };
+
+  const handleDelete = () => {
+    if (operand.length > 0) {
+      setOperand((op) => op.slice(0, -1));
+    }
+  };
+
+  return (
+    <div className="calculator">
+      <div className="c-wrapper">
         <div className="ctc c-type">
-            <button className="active">Calculator</button>
-            <button className="">Converter</button>
+          <button className="active">Calculator</button>
+          <button className="">Converter</button>
         </div>
         <div className="ctc c-screen">
-            <div className="c-history-answer">
-                <i className="fa-solid fa-clock"></i>
-                <span>1234</span>
-            </div>
+          <div className="c-history-answer">
+            <i className="fa-solid fa-clock"></i>
+            <span>{prevAnswer}</span>
+          </div>
 
-            <div className="c-answer">
-                <span>0</span>
-            </div>
+          <div className="c-answer">
+            <span className="c-answer-span">{answer}</span>
+          </div>
         </div>
         <div className="ctc c-compute">
-            <button className="c-reverse" value="rv">
-                <i className="fa-solid fa-rotate-left"></i>
-            </button> 
-            <span>1234 + 1234</span>          
+          <button className="c-reverse" value="rv" onClick={handleDelete}>
+            <i className="fa-solid fa-rotate-left"></i>
+          </button>
+          <span>{operand ? operand : "0"}</span>
         </div>
         <div className="c-grid">
-        <button type="button" className="top-btn" value="ac">ac</button>
-          <button type="button" className="top-btn" value="pm">&plusmn;</button>
-          <button type="button" className="top-btn" value="%">%</button>
-          <button type="button" className="top-btn special" value="/">/</button>
+          <button
+            type="button"
+            className="top-btn"
+            value="ac"
+            onClick={handleOperator}
+          >
+            ac
+          </button>
+          <button
+            type="button"
+            className="top-btn"
+            value="pm"
+            onClick={handleOperator}
+          >
+            &plusmn;
+          </button>
+          <button
+            type="button"
+            className="top-btn"
+            value="%"
+            onClick={handleOperator}
+          >
+            %
+          </button>
+          <button
+            type="button"
+            className="top-btn special"
+            value="/"
+            onClick={handleOperator}
+          >
+            /
+          </button>
 
-          <button className="normal" value="7">7</button>
-          <button className="normal" value="8">8</button>
-          <button className="normal" value="9">9</button>
+          <button className="normal" value="7" onClick={handleOperand}>
+            7
+          </button>
+          <button className="normal" value="8" onClick={handleOperand}>
+            8
+          </button>
+          <button className="normal" value="9" onClick={handleOperand}>
+            9
+          </button>
 
+          <button className="special" value="*" onClick={handleOperator}>
+            x
+          </button>
+          <button className="normal" value="4" onClick={handleOperand}>
+            4
+          </button>
+          <button className="normal" value="5" onClick={handleOperand}>
+            5
+          </button>
+          <button className="normal" value="6" onClick={handleOperand}>
+            6
+          </button>
 
-          <button className="special" value="*">x</button>
-          <button className="normal" value="4">4</button>
-          <button className="normal" value="5">5</button>
-          <button className="normal" value="6">6</button>
+          <button className="special" value="-" onClick={handleOperator}>
+            -
+          </button>
+          <button className="normal" value="1" onClick={handleOperand}>
+            1
+          </button>
+          <button className="normal" value="2" onClick={handleOperand}>
+            2
+          </button>
+          <button className="normal" value="3" onClick={handleOperand}>
+            3
+          </button>
+          <button className="special" value="+" onClick={handleOperator}>
+            +
+          </button>
 
-
-          <button className="special" value="-">-</button>
-          <button className="normal" value="1">1</button>
-          <button className="normal" value="2">2</button>
-          <button className="normal" value="3">3</button>
-          <button className="special" value="+">+</button>
-
-          <button className="span-two normal" value="0">0</button>
-          <button className="normal" value=".">.</button>
-          <button className="special" value="=">=</button>
+          <button className="span-two normal" value="0" onClick={handleOperand}>
+            0
+          </button>
+          <button className="normal" value="." onClick={handleOperator}>
+            .
+          </button>
+          <button className="special" value="=" onClick={handleOperator}>
+            =
+          </button>
         </div>
+      </div>
     </div>
-  </div>;
+  );
 }
 
 export default Calculator;
