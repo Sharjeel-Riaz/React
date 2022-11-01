@@ -52,6 +52,10 @@ body::-webkit-scrollbar {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
+.calculator i {
+  padding-right: 0.5rem;
+}
+
 /* Global Button Style */
 button {
   border: unset;
@@ -124,6 +128,20 @@ button.special {
 
 .c-answer-span {
   display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 10ch;
+}
+
+.c-compute-span {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.c-screen-span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

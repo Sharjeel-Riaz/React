@@ -66,7 +66,7 @@ function Calculator() {
         if (Number(operand.slice(-1) == 0)) {
           setOperand(newOperand + `0` + value);
           setAnswer(eval(operand));
-          setOperand("");cd 
+          setOperand("");
           return;
         } else {
           setOperand(newOperand + value);
@@ -123,7 +123,7 @@ function Calculator() {
         <div className="ctc c-screen">
           <div className="c-history-answer">
             <i className="fa-solid fa-clock"></i>
-            <span>{prevAnswer}</span>
+            <span className="c-screen-span">{prevAnswer}</span>
           </div>
 
           <div className="c-answer">
@@ -134,7 +134,7 @@ function Calculator() {
           <button className="c-reverse" value="rv" onClick={handleDelete}>
             <i className="fa-solid fa-rotate-left"></i>
           </button>
-          <span>{operand ? operand : "0"}</span>
+          <span className="c-compute-span">{operand ? operand : "0"}</span>
         </div>
         <div className="c-grid">
           <button
