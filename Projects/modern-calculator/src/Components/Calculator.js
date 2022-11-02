@@ -29,7 +29,7 @@ function Calculator() {
       return;
     }
 
-    // handle plush and minus sign
+    // handle plus and minus sign
     if (value === "pm") {
       if (operand === "") return;
       //get the last char
@@ -68,7 +68,17 @@ function Calculator() {
         // checks if the last operand contains a zero
         if (Number(operand.slice(-1)) === 0) {
           setOperand(newOperand + `0` + value);
-          return;
+          if (value === "=") {
+            setAnswer(eval(operand));
+            setOperand("");
+            return;
+          } else if (value === "+") {
+            setOperand(eval(operand) + value);
+            return;
+          } else {
+            setOperand(`${eval(operand)}${value}`);
+            return;
+          }
         } else {
           setOperand(newOperand + value);
           return;
@@ -88,7 +98,7 @@ function Calculator() {
     if (!Number(lastDigit)) return;
 
     // if Dot(.) exists don't add again
-    if (!(operand === "." || operand.includes("."))) {
+    if (!(operand === ".") || operand.includes(".")) {
       setOperand((operand) => operand + value);
     }
 
