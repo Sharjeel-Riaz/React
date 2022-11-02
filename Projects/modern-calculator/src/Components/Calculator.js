@@ -15,12 +15,12 @@ function Calculator() {
   const handleOperator = (e) => {
     const value = e.target.value;
 
-    if (value == "=") {
-      if (operand == "") return;
+    if (value === "=") {
+      if (operand === "") return;
     }
 
     // if no value in operand stop
-    if (value == "ac") {
+    if (value === "ac") {
       setOperand("");
       setAnswer(0);
 
@@ -30,8 +30,8 @@ function Calculator() {
     }
 
     // handle plush and minus sign
-    if (value == "pm") {
-      if (operand == "") return;
+    if (value === "pm") {
+      if (operand === "") return;
       //get the last char
       let calculated;
       if (Number(operand.slice(-1))) {
@@ -55,26 +55,41 @@ function Calculator() {
     }
 
     let newOperand;
-    //To get the last operand value
-    if (operand.slice(-1) == value) {
-      return;
+    // get last operand value
+    if (operand.slice(-1) === value) {
+      newOperand = operand.slice(0, -1);
+      setOperand(newOperand + value);
     } else {
+      // get the last input operator & check if is a number
       if (!Number(operand.slice(-1))) {
-        //To replace an operand within the calculation
+        // remove the last selected char
         newOperand = operand.slice(0, -1);
 
-        if (Number(operand.slice(-1) == 0)) {
+        // checks if the last operand contains a zero
+        if (Number(operand.slice(-1)) === 0) {
           setOperand(newOperand + `0` + value);
-          setAnswer(eval(operand));
-          setOperand("");
           return;
         } else {
           setOperand(newOperand + value);
           return;
         }
-      } else {
-        setOperand(operand + value);
+      } else if (operand.slice(-1) === "ac") {
+        setOperand("");
+        // Check if we have a prev answer > 0
+        if (answer > 0) setAnswer(0);
+      } else if (operand.includes("/")) {
+        newOperand = eval(operand);
+        setOperand(newOperand);
       }
+    }
+
+    // if the last inputed digit is not a number stop
+    const lastDigit = operand.slice(-1);
+    if (!Number(lastDigit)) return;
+
+    // if Dot(.) exists don't add again
+    if (!(operand === "." || operand.includes("."))) {
+      setOperand((operand) => operand + value);
     }
 
     switch (value) {
@@ -94,10 +109,9 @@ function Calculator() {
         setOperand(`${eval(operand)}${value}`);
         break;
       case "=":
-        if (answer > -1) setPrevAnswer(answer);
         setAnswer(eval(operand));
         setOperand("");
-
+        if (answer > 0) setPrevAnswer(answer);
         break;
       case "%":
         console.log("percentage + Test for all viewers");
