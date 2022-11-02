@@ -98,7 +98,7 @@ function Calculator() {
     if (!Number(lastDigit)) return;
 
     // if Dot(.) exists don't add again
-    if (!(operand === ".") || operand.includes(".")) {
+    if (!(operand === "." || operand.includes("."))) {
       setOperand((operand) => operand + value);
     }
 
