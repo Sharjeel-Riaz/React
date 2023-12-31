@@ -17,9 +17,7 @@ export const Download = () => {
           <button
             className={`${styles.btnPrimary}`}
             onClick={() =>
-              window.open(
-                "https://github.com/Sharjeel-Riaz/React-Native/tree/main/Projects/Mintify"
-              )
+              window.open("https://github.com/Sharjeel-Riaz/Mintify")
             }
           >
             Source Code

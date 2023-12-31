@@ -1,8 +1,11 @@
-# React + Vite
+# Mintify-Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository serves as a showcase for Mintify, a React Native powered NFT trading
+platform built with multiple dependencies for optimal performance. Explore the
+future of NFTs effortlessly with Mintify Showcase, developed using [React](https://react.dev/) and [Vite](https://vitejs.dev/).
 
-Currently, two official plugins are available:
+![Banner]()
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Further information
+
+For more information on the platform, you can visit: [Mintify](https://github.com/Sharjeel-Riaz/Mintify)
