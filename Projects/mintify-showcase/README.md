@@ -4,7 +4,7 @@ This repository serves as a showcase for Mintify, a React Native powered NFT tra
 platform built with multiple dependencies for optimal performance. Explore the
 future of NFTs effortlessly with Mintify Showcase, developed using [React](https://react.dev/) and [Vite](https://vitejs.dev/).
 
-![Banner]()
+![Banner](https://raw.githubusercontent.com/Sharjeel-Riaz/React/main/Projects/mintify-showcase/src/assets/Mintify-Showcase%20Banner.png)
 
 ## Further information
 
