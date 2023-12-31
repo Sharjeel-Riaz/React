@@ -8,4 +8,9 @@ future of NFTs effortlessly with Mintify Showcase, developed using [React](https
 
 ## Further information
 
-For more information on the platform, you can visit: [Mintify](https://github.com/Sharjeel-Riaz/Mintify)
+For more information on the platform, you can visit:
+[Mintify](https://github.com/Sharjeel-Riaz/Mintify)
+
+## Production
+
+Visit the live environment of Mintify Showcase at: [Mintify-Showcase](https://mintify-showcase.vercel.app/)
