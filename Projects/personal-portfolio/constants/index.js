@@ -16,6 +16,8 @@ import {
   nextalgo,
   weathersnap,
   linearvision,
+  palmflow,
+  mintify,
   hairday,
   threejs,
   mitch,
@@ -170,6 +172,50 @@ const testimonials = [
 ];
 
 const projects = [
+  {
+    name: "Mintify",
+    description:
+      "Embark on the NFT revolution with Mintify: a cutting-edge React Native marketplace animated with react native reanimated.",
+    tags: [
+      {
+        name: "react native",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "expo",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwindcss",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: mintify,
+    source_code_link: "https://github.com/Sharjeel-Riaz/Mintify",
+    project_link: "https://mintify-showcase.vercel.app/",
+  },
+  {
+    name: "PaLMFlow",
+    description:
+      "Innovative React Native and Expo-powered app, PaLMFlow, integrates Google PaLM 2.0 API for a personalized Conversational AI experience.",
+    tags: [
+      {
+        name: "react native",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "nextjs",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwindcss",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: palmflow,
+    source_code_link: "https://github.com/Sharjeel-Riaz/PaLMFlow",
+    project_link: "https://github.com/Sharjeel-Riaz/PaLMFlow",
+  },
   {
     name: "Weather Snap",
     description:

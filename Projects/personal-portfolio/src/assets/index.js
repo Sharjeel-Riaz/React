@@ -27,6 +27,8 @@ import nextalgo from "./company/nextalgo.png";
 import weathersnap from "./weathersnap.png";
 import linearvision from "./linearvision.png";
 import hairday from "./hairday.png";
+import palmflow from "./palmflow.png";
+import mintify from "./mintify.png";
 
 import mitch from "./testimonials/mitch.png";
 import kevin from "./testimonials/kevin.png";
@@ -59,6 +61,8 @@ export {
   nextalgo,
   weathersnap,
   linearvision,
+  palmflow,
+  mintify,
   hairday,
   resume,
   mitch,
