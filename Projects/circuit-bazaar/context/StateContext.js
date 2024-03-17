@@ -97,6 +97,9 @@ const onRemove = (product) => {
         onAdd,
         toggleCartItemQuantity,
         onRemove,
+        setCartItems,
+        setTotalPrice,
+        setTotalQuantities,
       }}
     >
       {children}

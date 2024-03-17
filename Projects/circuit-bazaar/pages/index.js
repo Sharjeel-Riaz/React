@@ -10,7 +10,7 @@ const Home = ({ products, bannerData }) => {
 
       <div className="products-heading">
         <h2>Best Selling Products</h2>
-        <p>Speakers of many variations</p>
+        <p>Speakers of many variations</p> 
       </div>
 
       <div className="products-container">
@@ -19,7 +19,7 @@ const Home = ({ products, bannerData }) => {
         ))}
       </div>
 
-      <FooterBanner footerBanner={bannerData && bannerData[0]} />
+      <FooterBanner footerBanner={bannerData && bannerData[1]} />
     </>
   );
 };

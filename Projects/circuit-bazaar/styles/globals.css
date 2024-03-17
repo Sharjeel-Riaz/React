@@ -254,6 +254,9 @@ span.text-red {
   font-weight: 800;
   font-size: 60px;
 }
+.banner-desc .right .footerDesc {
+  font-size: 14px;
+}
 .banner-desc .right p {
   font-size: 18px;
 }

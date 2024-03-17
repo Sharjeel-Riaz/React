@@ -29,7 +29,7 @@ const FooterBanner = ({
         <div className="right">
           <p>{smallText}</p>
           <h3>{midText}</h3>
-          <p>{desc}</p>
+          <p className="footerDesc">{desc}</p>
           <Link href={`/product/${product}`}>
             <button type="button">{buttonText}</button>
           </Link>
